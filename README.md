@@ -29,12 +29,6 @@ The following is required to complete this module:
 [3]: http://go.microsoft.com/fwlink/?LinkID=691134
 [7]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<a name="Setup"></a>
-### Setup ###
-In order to run the exercises in this module, you'll need to set up your environment first.
-
-1. Open the end solution from Module 2 and open the Azure IoT hub created.
-
 
 ---
 
@@ -58,7 +52,7 @@ In this exercise, you'll again send telemetry data (light level) to Azure IoT Hu
 
 In this task, you'll return to the created IoT Hub.
 
-1. Considering you completed the previous modules, you are now able to send data to the Azure IoT hub. In case this is not done, review the lab of Module 2, where you set up the Azure IoT hub and register your device.
+Considering you completed the previous modules, you are now able to send data to the Azure IoT hub. In case this is not done, review the lab of Module 2, where you set up the Azure IoT hub and register your device. Take a note of the connection string of the iothubowner in the shared access policy settings of the IoT hub.  
 
 <a name="Ex1Task2"></a>
 #### Task 2 - Sending telemetry data to the Azure IoT hub ####
@@ -66,6 +60,8 @@ In this task, you'll return to the created IoT Hub.
 Now you'll again send telemetry data to the Azure IoT Hub.
 
 1. Open in Visual Studio the **xxxxxx.sln** solution located at **/xxxxx** folder.
+
+1. In case you have not done this, enter the connection string of the registred device in **MainPage.xaml.cs**. This information can be retrieved in **Device explorer**
 
 1. Press **F5** to run and debug the application.
 
@@ -240,7 +236,7 @@ After some minutes of the job running, you'll see that the dataset that you conf
 1. To create the _Average Light by time_ report, select the following fields:
 
 	- avgvalue
-	- timecreated
+	- measurementTime
 
 	As you can see the **avgvalue** field is automatically set to the **Value** field and the **timecreated** is inserted as an axis. Now change the chart type to a **Line Chart**:
 
@@ -248,7 +244,7 @@ After some minutes of the job running, you'll see that the dataset that you conf
 
 	_Selecting the Line Chart_
 
-1. To create a filter to show only the Light sensor data, drag the **measurename** field to the **Filters** section, and then select the **Light** value:
+1. To create a filter to show only the Light sensor data, drag the **devicename** field to the **Filters** section, and then select the **Photocell** value:
 
 	![Select Report Filter](Images/select-report-filter.png?raw=true "Select Report Filter")
 	![Select Light sensor values](Images/select-light-sensor-values.png?raw=true "Select Light sensor values")
@@ -280,5 +276,10 @@ In this task, you'll create a new Dashboard, and pin the _Light by Time_ report 
 
 By completing this module, you should have:
 
-- Used **Stream Analytics** to process data in near-realtime and spool data to **Blob Storage** and **Power BI**.
+- Used **Stream Analytics** to process data in near-realtime and spool data to **Power BI**.
 - Created a **Power BI** reports and dashboards with graphs to visualize the telemetry data.
+
+<a name="Optional"></a>
+## Optional ##
+
+Try using other data of the other sensors and visualize this in PowerBI. 

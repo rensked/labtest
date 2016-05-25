@@ -33,7 +33,7 @@ The following is required to complete this module:
 ### Setup ###
 In order to run the exercises in this module, you'll need to set up your environment first.
 
-1. Open the solution from Lab 1 and open the Azure IoT hub created.
+1. Open the end solution from Module 2 and open the Azure IoT hub created.
 
 
 ---
@@ -51,42 +51,27 @@ Estimated time to complete this module: **20 minutes**
 <a name="Exercise1"></a>
 ### Exercise 1: Setting up the app to send data to Azure ###
 
-In this exercise, you'll again send telemetry data (light level) to Azure IoT Hub, as was done in previous labs.
+In this exercise, you'll again send telemetry data (light level) to Azure IoT Hub, as was done in previous modules.
 
 <a name="Ex1Task1"></a>
-#### Task 1 - Reviewing the IoT Hub ####
+#### Task 1 - Reviewing the IoT Hub and registrering your device ####
 
 In this task, you'll return to the created IoT Hub.
 
-1. Go the Azure portal, by navigating to http://portal.azure.com
-
-1. Open the blade of your IoT hub, take note of the **hostname**. Select the key icon at the top to access the shared access policy settings:
-
-	![IoT hub shared access policies](Images/iot-hub-shared-access-policies.png?raw=true "IoT hub shared access policies")
-
-	_IoT hub shared access policies_
-
-1. Select the Shared access policy called **iothubowner**, and take note of the **Primary key** and **connection string** in the right blade.  You should copy these into a text file since you'll need them later.
-
-	![Get IoT Hub owner connection string](Images/get-iot-hub-owner-connection-string.png?raw=true "Get IoT Hub owner connection string")
-
-	_Get IoT Hub owner connection string_
+1. Considering you completed the previous modules, you are now able to send data to the Azure IoT hub. In case this is not done, review the lab of Module 2, where you set up the Azure IoT hub and register your device.
 
 <a name="Ex1Task2"></a>
-#### Task 2 - Registering your device ####
+#### Task 2 - Sending telemetry data to the Azure IoT hub ####
 
-You must register your device in order to be able to send and receive information from the Azure IoT Hub. This is done by registering a [Device Identity](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/#device-identity-registry) in the IoT Hub.
+Now you'll again send telemetry data to the Azure IoT Hub.
 
-<a name="Ex1Task4"></a>
-#### Task 3 - Sending telemetry data to the Azure IoT hub ####
-
-Now that the simulated device is configured, you'll see how to make an application that simulates the sensors, and then sends those values to an Azure IoT Hub.
-
-1. Open in Visual Studio the **ilionx.SummerCamp.Labs.sln** solution located at **/ilionx.SummerCamp.Labs** folder.
+1. Open in Visual Studio the **xxxxxx.sln** solution located at **/xxxxx** folder.
 
 1. Press **F5** to run and debug the application.
 
 	The information being sent can be monitored using the Device Explorer application. Run the application and go to the **Data** tab and select the name of the device you want to monitor (_DhasPI_ in your case), then click on **Monitor**
+
+1. Make sure to tick **Enable** and insert **powerbi** as the Consumer Group. This will explained in the next task. 
 
 	![Monitoring messages sent](Images/monitoring-messages-sent.png?raw=true "Monitoring messages sent")
 
@@ -127,7 +112,7 @@ Before the information can be consumed (for instance using **Power BI**), it mus
 
 1. Then select **DATA SERVICES > STREAM ANALYTICS > QUICK CREATE** and enter the required fields:
 	- **Job Name**: Enter a job name.
-	- **Region**: Select the region where you want to run the job. Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.
+	- **Region**: West Europe
 	- **Subscription**: If you have more than one subscription associated to your account, select the one where you created the IoT hub.
 	- **Regional Monitoring Storage Account**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing storage account or to create a new one.
 
